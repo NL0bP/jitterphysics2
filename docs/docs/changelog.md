@@ -4,9 +4,36 @@ sidebar_position: 5
 
 # Changelog
 
+### Jitter 2.6.5 (2025-05-21)
+
+- Rigid bodies now activate on velocity or force changes.
+- Remove FatTriangleShape.
+- Rename 'Active' to 'ActiveCount' and add span-based accessors in ReadOnlyPartitionedSet.
+- Fixed bug in TriangleEdgeCollisionFilter.
+
+### Jitter 2.6.4 (2025-05-19)
+
+- **Breaking Change:** Triangle winding order in `TriangleMesh` is now counter-clockwise (CCW) for front-facing triangles.
+*If you're using `TriangleMesh`, swap the vertex order to maintain correct normal orientation.*
+- Add `JTriangle.RayIntersect` method.
+- Rename `ConvexHullIntersection` to `CollisionManifold`.
+- Modified support function for `BoxShape`.
+
+### Jitter 2.6.3 (2025-05-17)
+
+- Align rigid bodies (`RigidBodyData`) to a 64-byte boundary (reduce false sharing).
+- Bugfix in speculative contacts.
+
+### Jitter 2.6.2 (2025-05-06)
+
+- Use **Generics** in `NarrowPhase.cs` (avoid boxing for structs implementing the `ISupportMappable` interface).
+- Add special code paths in `Contact.cs` for static bodies (avoid unnecessary cache line invalidation).
+- Add `PredictPosition`, `PredictOrientation` and `PredictPose` to `RigidBody`.
+- Add `CreateFromAxisAngle` and `Normalize` methods in `JQuaternion`.
+
 ### Jitter 2.6.1 (2025-04-24)
 
-- Bugfix in `TriangleEdgeCollisionFilter` for speculative contacts
+- Bugfix in `TriangleEdgeCollisionFilter` for speculative contacts.
 
 ### Jitter 2.6.0 (2025-04-24)
 
