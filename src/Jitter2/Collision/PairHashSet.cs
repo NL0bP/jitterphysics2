@@ -237,7 +237,7 @@ internal unsafe class PairHashSet : IEnumerable<PairHashSet.Pair>
         return false;
     }
 
-    private Jitter2.Parallelization.ReaderWriterLock rwLock;
+    private readonly Jitter2.Parallelization.ReaderWriterLock rwLock = new();
 
     /// <summary>
     /// Attempts to add a pair to the hash set in a thread-safe manner.

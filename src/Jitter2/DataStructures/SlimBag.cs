@@ -111,7 +111,7 @@ internal class SlimBag<T> : IEnumerable<T>
         array[counter++] = item;
     }
 
-    private Jitter2.Parallelization.ReaderWriterLock rwLock;
+    private readonly Jitter2.Parallelization.ReaderWriterLock rwLock = new();
 
     /// <summary>
     /// Adds an element to the <see cref="SlimBag{T}"/> in a thread-safe manner.
