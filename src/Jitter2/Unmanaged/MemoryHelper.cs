@@ -47,6 +47,20 @@ public static unsafe class MemoryHelper
     }
 
     /// <summary>
+    /// Represents an integer value padded to one cache-line-sized array element.
+    /// </summary>
+    /// <remarks>
+    /// This type is intended for arrays of counters where adjacent <see cref="Value"/> fields
+    /// should not share a cache line. For standalone fields, use <see cref="IsolatedInt"/>.
+    /// </remarks>
+    [StructLayout(LayoutKind.Explicit, Size = 128)]
+    public struct PaddedInt
+    {
+        [FieldOffset(0)]
+        public int Value;
+    }
+
+    /// <summary>
     /// A memory block with a size equivalent to six instances of the <see cref="Real"/> type.
     /// </summary>
     /// <remarks>

@@ -155,7 +155,7 @@ public sealed unsafe class PartitionedBuffer<T> : IDisposable where T : unmanage
     /// Resizing moves the contiguous data memory addresses. Use a reader lock
     /// to access data if concurrent calls to Allocate are made.
     /// </summary>
-    public ReaderWriterLock ResizeLock;
+    public readonly ReaderWriterLock ResizeLock = new();
 
     /// <summary>
     /// Gets the number of allocated elements in the buffer.

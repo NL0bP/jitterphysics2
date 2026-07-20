@@ -952,30 +952,42 @@ public sealed partial class World
         if (Unsafe.IsAddressGreaterThan(ref b1, ref b2))
         {
             if (b1.MotionType == MotionType.Dynamic)
+            {
+                SpinWait spinWait = new();
                 while (Interlocked.CompareExchange(ref b1._lockFlag, 1, 0) != 0)
                 {
-                    Thread.SpinWait(10);
+                    spinWait.SpinOnce();
                 }
+            }
 
             if (b2.MotionType == MotionType.Dynamic)
+            {
+                SpinWait spinWait = new();
                 while (Interlocked.CompareExchange(ref b2._lockFlag, 1, 0) != 0)
                 {
-                    Thread.SpinWait(10);
+                    spinWait.SpinOnce();
                 }
+            }
         }
         else
         {
             if (b2.MotionType == MotionType.Dynamic)
+            {
+                SpinWait spinWait = new();
                 while (Interlocked.CompareExchange(ref b2._lockFlag, 1, 0) != 0)
                 {
-                    Thread.SpinWait(10);
+                    spinWait.SpinOnce();
                 }
+            }
 
             if (b1.MotionType == MotionType.Dynamic)
+            {
+                SpinWait spinWait = new();
                 while (Interlocked.CompareExchange(ref b1._lockFlag, 1, 0) != 0)
                 {
-                    Thread.SpinWait(10);
+                    spinWait.SpinOnce();
                 }
+            }
         }
     }
 
