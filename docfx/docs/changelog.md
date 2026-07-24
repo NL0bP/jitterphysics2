@@ -2,7 +2,7 @@
 
 ### Jitter 2.8.9 (2026-07-24)
 
-- Improved multithreading performance by reducing contention and cache-line ping-pong in reader-writer locks and by adding adaptive backoff to body locks.
+- Improved multithreading performance by reducing contention and cache-line ping-pong in reader-writer locks.
 
 ### Jitter 2.8.8 (2026-05-24)
 
