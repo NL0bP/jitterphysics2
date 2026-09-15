@@ -87,6 +87,25 @@
         <article data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="jitter-2812-2026-09-15">Jitter 2.8.12 (2026-09-15)</h3>
+<ul>
+<li>Added <code>World.Trim</code> to release excess internal storage after large scene changes.</li>
+<li>Fixed a multithreaded contact creation race that could create duplicate collision pairs.</li>
+<li>Fixed managed memory growth from arbiter pooling across worker threads.</li>
+<li>Improved validation and exception behavior for disposed worlds, removal calls, dynamic tree optimization, worker pools, and unmanaged memory helpers.</li>
+<li>Improved XML documentation for contact registration threading rules, arbiter lifetime, and public exception behavior.</li>
+</ul>
+<h3 id="jitter-2811-2026-09-09">Jitter 2.8.11 (2026-09-09)</h3>
+<ul>
+<li>Added <code>World.ConstraintRemoved</code> for reacting to explicit and automatic constraint removal.</li>
+<li>Improved <code>DynamicTree</code> quality during regular updates with automatic incremental optimization and non-cost-increasing rotations.</li>
+</ul>
+<h3 id="jitter-2810-2026-08-31">Jitter 2.8.10 (2026-08-31)</h3>
+<ul>
+<li>Added <code>World.IsDisposed</code> and <code>IsValid</code> properties for rigid bodies and constraints, allowing unavailable native state—including automatically removed constraints—to be detected safely.</li>
+<li>Ensured arbiters remain valid while <code>EndCollide</code> callbacks are running.</li>
+<li>Improved contact allocation and removal performance by eliminating unnecessary data movement between buffer partitions.</li>
+</ul>
 <h3 id="jitter-289-2026-07-24">Jitter 2.8.9 (2026-07-24)</h3>
 <ul>
 <li>Improved multithreading performance by reducing contention and cache-line ping-pong in reader-writer locks.</li>
