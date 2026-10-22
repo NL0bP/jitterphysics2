@@ -102,7 +102,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SoftBodyTriangle : SoftBodyShape, IDynamicTreeProxy, IPartitionedSetIndex, IUpdatableBoundingBox, ISupportMappable, IRayCastable, ISweepTestable, IDistanceTestable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SoftBodyTriangle : SoftBodyShape, IDynamicTreeProxy, IPartitionedSetIndex, IUpdatableBoundingBox, ISupportMappable, IRayCastable, ISweepTestable, IDistanceTestable, IDebugDrawable</code></pre>
   </div>
 
 
@@ -128,6 +128,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
       <div><a class="xref" href="Jitter2.Collision.IRayCastable.html">IRayCastable</a></div>
       <div><a class="xref" href="Jitter2.Collision.ISweepTestable.html">ISweepTestable</a></div>
       <div><a class="xref" href="Jitter2.Collision.IDistanceTestable.html">IDistanceTestable</a></div>
+      <div><a class="xref" href="Jitter2.IDebugDrawable.html">IDebugDrawable</a></div>
     </dd>
   </dl>
 
@@ -152,6 +153,12 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
     </div>
     <div>
       <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_WorldBoundingBox">Shape.WorldBoundingBox</a>
+    </div>
+    <div>
+      <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_DebugDraw_Jitter2_IDebugDrawer_">Shape.DebugDraw(IDebugDrawer)</a>
+    </div>
+    <div>
+      <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_DebugDraw_Jitter2_IDebugDrawer_Jitter2_DebugDrawSettings__">Shape.DebugDraw(IDebugDrawer, in DebugDrawSettings)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -186,7 +193,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle__ctor_Jitter2_SoftBodies_SoftBody_Jitter2_Dynamics_RigidBody_Jitter2_Dynamics_RigidBody_Jitter2_Dynamics_RigidBody_" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.#ctor(Jitter2.SoftBodies.SoftBody,Jitter2.Dynamics.RigidBody,Jitter2.Dynamics.RigidBody,Jitter2.Dynamics.RigidBody)">
   SoftBodyTriangle(SoftBody, RigidBody, RigidBody, RigidBody)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Jitter2.SoftBodies.SoftBodyTriangle.html">SoftBodyTriangle</a> class.</p>
@@ -232,7 +239,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_Thickness" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.Thickness">
   Thickness
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the thickness of the triangle.</p>
@@ -257,6 +264,12 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if the thickness is negative or not finite.</p>
+</dd>
+  </dl>
 
 
 
@@ -264,7 +277,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_Velocity" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.Velocity">
   Velocity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the velocity of the entity, used for bounding box expansion.</p>
@@ -396,10 +409,10 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_GetCenter_Jitter2_LinearMath_JVector__" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.GetCenter(Jitter2.LinearMath.JVector@)">
   GetCenter(out JVector)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Computes a point deep within the shape, used as an initial search point in GJK-based algorithms.</p>
+  <div class="markdown level1 summary"><p>Computes a representative point within the convex hull, used as an initial search point in GJK-based algorithms.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -410,7 +423,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>point</code> <a class="xref" href="Jitter2.LinearMath.JVector.html">JVector</a></dt>
-    <dd><p>A point that must lie strictly inside the convex hull.</p>
+    <dd><p>A point inside the convex hull.</p>
 </dd>
   </dl>
 
@@ -429,7 +442,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_GetClosest_Jitter2_LinearMath_JVector__" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.GetClosest(Jitter2.LinearMath.JVector@)">
   GetClosest(in JVector)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the rigid body closest to the specified position.</p>
@@ -468,7 +481,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_SupportMap_Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.SupportMap(Jitter2.LinearMath.JVector@,Jitter2.LinearMath.JVector@)">
   SupportMap(in JVector, out JVector)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Computes the point on the shape that is furthest in the specified direction.</p>
@@ -504,7 +517,7 @@ Class SoftBodyTriangle  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Jitter2_SoftBodies_SoftBodyTriangle_UpdateWorldBoundingBox_System_Single_" data-uid="Jitter2.SoftBodies.SoftBodyTriangle.UpdateWorldBoundingBox(System.Single)">
   UpdateWorldBoundingBox(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/SoftBodies/SoftBodyTriangle.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Recomputes the world-space bounding box.</p>

@@ -140,7 +140,12 @@ Constraints remove one or more of these degrees of freedom.</p>
 <tr>
 <td><code>ConeLimit</code></td>
 <td>1 rotational (when limit active)</td>
-<td>Limits angular tilt between two axes, only enforced when outside the limit range</td>
+<td>Limits angular tilt between two axes</td>
+</tr>
+<tr>
+<td><code>EllipticalConeLimit</code></td>
+<td>1 rotational (when limit active)</td>
+<td>Limits swing between inner and outer elliptical cones; leaves twist free</td>
 </tr>
 <tr>
 <td><code>AngularMotor</code></td>
@@ -172,17 +177,17 @@ Constraints remove one or more of these degrees of freedom.</p>
 <tbody>
 <tr>
 <td><code>HingeJoint</code></td>
-<td><code>BallSocket</code> + <code>HingeAngle</code> (+ optional <code>AngularMotor</code>)</td>
+<td><code>BallSocket</code> + <code>HingeAngle</code> (+ optional <code>AngularMotor</code> or <code>TwistServo</code>)</td>
 <td>1 rotational</td>
 </tr>
 <tr>
 <td><code>PrismaticJoint</code></td>
-<td><code>PointOnLine</code> + <code>FixedAngle</code> or <code>HingeAngle</code> (+ optional <code>LinearMotor</code>)</td>
+<td><code>PointOnLine</code> + <code>FixedAngle</code> or <code>HingeAngle</code> (+ optional <code>LinearMotor</code> or <code>LinearAxisServo</code>)</td>
 <td>1 translational</td>
 </tr>
 <tr>
 <td><code>UniversalJoint</code></td>
-<td><code>BallSocket</code> + <code>TwistAngle</code> (+ optional <code>AngularMotor</code>)</td>
+<td><code>BallSocket</code> + <code>TwistAngle</code> (+ optional <code>AngularMotor</code> or <code>AngularServo</code>)</td>
 <td>2 rotational</td>
 </tr>
 <tr>
@@ -192,6 +197,45 @@ Constraints remove one or more of these degrees of freedom.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="joint-drives">Joint drives</h3>
+<p><code>HingeJoint</code>, <code>PrismaticJoint</code>, and <code>UniversalJoint</code> can create an optional motor or servo.
+Select <code>JointDrive.Motor</code> for velocity control or <code>JointDrive.Servo</code> for position control.
+Omitting the drive creates the mechanical joint only (<code>JointDrive.None</code>).</p>
+<pre><code class="lang-cs">var elbow = new HingeJoint(
+    world, upperArm, lowerArm, center, axis,
+    angle: AngularLimit.FromDegree(0, 135),
+    drive: JointDrive.Servo);
+
+elbow.Servo!.TargetAngle = JAngle.FromDegree(90);
+elbow.Servo.MaximumTorque = 20;
+</code></pre>
+<p>The hinge exposes a <code>TwistServo</code>; its target angle uses the same zero and direction as
+<code>HingeAngle.Angle</code>. The prismatic joint exposes a <code>LinearAxisServo</code> using the same coordinate
+as <code>Slider.Distance</code>:</p>
+<pre><code class="lang-cs">var slider = new PrismaticJoint(
+    world, body1, body2, center, axis,
+    limit: new LinearLimit(0, 2),
+    drive: JointDrive.Servo);
+
+slider.Servo!.TargetPosition = 1.5f;
+slider.Servo.MaximumForce = 100;
+</code></pre>
+<p>The universal joint exposes an <code>AngularServo</code> with a target orientation for body 2 relative to
+body 1. Its initial target is the current relative orientation:</p>
+<pre><code class="lang-cs">var universal = new UniversalJoint(
+    world, body1, body2, center, axis1, axis2,
+    drive: JointDrive.Servo);
+
+universal.Servo!.TargetRelativeOrientation = targetRelativeOrientation;
+universal.Servo.MaximumTorque = 20;
+</code></pre>
+<p>The twist constraint remains active, so only orientations allowed by the joint can be reached.</p>
+<p>Drives start with zero maximum force or torque. Mechanical limits remain independent of
+the drive. The joint includes its drive when enabled, disabled, removed, or drawn for debugging.
+<code>Motor</code> is available when selecting <code>JointDrive.Motor</code>; <code>Servo</code> is available when selecting
+<code>JointDrive.Servo</code>. Otherwise the corresponding property is null.</p>
+<p>The older <code>hasMotor</code> constructor overloads are obsolete and remain supported. Replace
+<code>hasMotor: true</code> with <code>drive: JointDrive.Motor</code>, or omit the drive when no motor is needed.</p>
 <h2 id="creating-constraints">Creating constraints</h2>
 <p>Constraints are instantiated through a create method in the world class:</p>
 <pre><code class="lang-cs">var constraint = world.CreateConstraint&lt;ConstraintType&gt;(body1, body2);
@@ -220,6 +264,105 @@ ballSocket.Initialize(hingeCenter);
 <p>Alternatively, the <code>HingeJoint</code> can be used for convenience:</p>
 <pre><code class="lang-cs">var hinge = new HingeJoint(world, body1, body2, hingeCenter, hingeAxis);
 </code></pre>
+<h3 id="cone-limits">Cone limits</h3>
+<p><code>ConeLimit</code> restricts the angle between two axes to a range from 0° to 180°.
+Ranges such as <code>[0°, 45°]</code>, <code>[135°, 180°]</code>, and <code>[0°, 180°]</code> are valid.
+Equal limits fix the angle when it lies strictly between 0° and 180°, for example <code>[30°, 30°]</code>.</p>
+<p>The fixed ranges <code>[0°, 0°]</code> and <code>[180°, 180°]</code> are rejected by <code>Initialize</code> and the <code>Limit</code> property.
+To keep axes parallel or antiparallel while allowing free twist, use <code>HingeAngle</code> with <code>AngularLimit.Full</code>:</p>
+<pre><code class="lang-cs">var hingeAngle = world.CreateConstraint&lt;HingeAngle&gt;(body1, body2);
+hingeAngle.Initialize(hingeAxis, AngularLimit.Full);
+</code></pre>
+<p>Position the bodies with the intended axes aligned or antiparallel before initialization.
+<code>HingeAngle</code> stores their current relative orientation as its reference; it does not pull two
+arbitrarily misaligned axes into alignment during initialization.</p>
+<h3 id="elliptical-cone-limits">Elliptical cone limits</h3>
+<p><code>EllipticalConeLimit</code> allows different swing limits in two perpendicular directions. Body 1 owns
+the cone frame; body 2 owns the axis being constrained. All initialization directions are supplied
+in world space and stored relative to their respective bodies.</p>
+<pre><code class="lang-cs">var cone = world.CreateConstraint&lt;EllipticalConeLimit&gt;(body1, body2);
+cone.Initialize(
+    axis: JVector.UnitY,
+    referenceDirection: JVector.UnitX,
+    limitAlongReference: AngularLimit.FromDegree(15, 60),
+    limitAlongPerpendicular: AngularLimit.FromDegree(5, 25));
+</code></pre>
+<p>The lower bounds define the inner ellipse (15° and 5°); the upper bounds define the outer ellipse
+(60° and 25°). Swing is allowed between these boundaries. Setting both lower bounds to zero
+removes the inner boundary. Setting each lower bound equal to its upper bound constrains swing
+to one elliptical cone surface. Identical ranges in both directions give a circular cone.</p>
+<p>The ellipses are defined in <strong>swing-angle coordinates</strong>: the shortest tilt angle resolved along
+the reference direction and <code>axis cross referenceDirection</code>. Each boundary satisfies
+<code>(swing1 / angle1)^2 + (swing2 / angle2)^2 = 1</code>. These are coupled boundaries, not independent
+clamps on two angles. The reference direction is projected perpendicular to the cone axis;
+parallel directions are rejected. Rotation of body 1 rotates the entire ellipse frame.</p>
+<p>Each range must satisfy <code>0 &lt;= From &lt;= To &lt; 180°</code>, with a positive upper bound. The lower bounds
+must either both be zero or both be positive. Fixed zero and 180° tilt are unsupported. Change
+the ranges together using <code>SetLimits</code>; inspect the current coordinates using <code>GetSwing</code>.
+The two-axis <code>Initialize</code> overload supports an initially tilted body 2. The single-axis overload
+starts at zero tilt, which violates a positive inner boundary and will be corrected by the solver.</p>
+<p>Translation and twist of body 2 about its constrained axis remain free. Combine this constraint
+with <code>BallSocket</code> for a joint, and optionally <code>TwistAngle</code> to limit twist.</p>
+<h3 id="servos">Servos</h3>
+<p>Servos drive bodies toward a target configuration. They can start outside that configuration,
+and their targets can change between simulation steps. Changing a target wakes sleeping
+connected dynamic bodies on the next step. Motors control velocity; servos control
+position or orientation.</p>
+<table>
+<thead>
+<tr>
+<th>Servo</th>
+<th>Controls</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AngularServo</code></td>
+<td>3 angular directions</td>
+<td><code>TargetRelativeOrientation</code>: body 2's orientation in body 1's frame</td>
+</tr>
+<tr>
+<td><code>TwistServo</code></td>
+<td>1 angular direction</td>
+<td><code>TargetAngle</code>: twist relative to the initial zero-twist pose</td>
+</tr>
+<tr>
+<td><code>LinearServo</code></td>
+<td>3 linear directions</td>
+<td><code>TargetPosition</code>: offset from anchor 1 to anchor 2, in body 1's frame</td>
+</tr>
+<tr>
+<td><code>LinearAxisServo</code></td>
+<td>1 linear direction</td>
+<td><code>TargetPosition</code>: signed anchor separation along the axis attached to body 1</td>
+</tr>
+</tbody>
+</table>
+<p>Maximum force or torque defaults to <strong>zero</strong>, as with motors. Set <code>MaximumForce</code> or
+<code>MaximumTorque</code> to enable the drive. Positive infinity allows unlimited force or torque.
+<code>Bias</code> controls how aggressively the servo approaches its target; <code>Softness</code> allows compliance.</p>
+<p>For example, drive two robot arm segments toward a relative orientation:</p>
+<pre><code class="lang-cs">var servo = world.CreateConstraint&lt;AngularServo&gt;(upperArm, lowerArm);
+servo.Initialize(JQuaternion.CreateRotationX((Real)0.5));
+servo.MaximumTorque = 20;
+
+// Choose a different configuration later without moving the bodies directly.
+servo.TargetRelativeOrientation = JQuaternion.CreateRotationX((Real)1.0);
+</code></pre>
+<p>The parameterless <code>AngularServo.Initialize()</code> captures the current relative orientation instead.
+<code>LinearServo.Initialize(anchor1, anchor2)</code> accepts separate world-space attachment points;
+its default target of zero pulls them toward coincidence. <code>LinearAxisServo.Initialize</code> also
+accepts the desired signed separation. <code>TwistServo.Initialize</code> accepts a target angle relative
+to its initial reference, so a nonzero target begins with an angular error.</p>
+<p><code>TwistServo</code> uses signed joint angles from -180° to +180°. Moving from -170° to +170°
+travels 340° through zero. Targets outside this interval are rejected; revolutions are not
+tracked. Use mechanical limits to keep the joint's motion inside the angular interval.
+<code>AngularServo</code> targets an orientation and uses the shortest rotation to reach it, so
+equivalent orientations represent the same target.</p>
+<p>Servos act alongside mechanical constraints. For an elbow, use a hinge to keep the arm segments
+connected and enforce the joint's angle limits, then add a <code>TwistServo</code> around the same axis.
+Its torque limit controls the actuator's strength while the hinge retains its mechanical limits.</p>
 <h3 id="fixed-constraints">Fixed constraints</h3>
 <p>To constrain a rigid body relative to world space, use <code>world.NullBody</code> as one of the bodies.
 For example, to keep a capsule upright:</p>
@@ -234,6 +377,102 @@ The softness and bias parameters can be tweaked for optimal results.
 Better constraint behavior can also be achieved by sub-stepping, see <a href="world.html">World</a>.</p>
 <h3 id="enabledisable-constraints">Enable/Disable constraints</h3>
 <p>Constraints can be temporarily enabled or disabled using <code>constraint.IsEnabled</code>.</p>
+<h2 id="debug-drawing">Debug drawing</h2>
+<p>Constraints and joints can draw their anchors, axes, and limits through an <code>IDebugDrawer</code>:</p>
+<pre><code class="lang-cs">constraint.DebugDraw(drawer);
+joint.DebugDraw(drawer);
+</code></pre>
+<p>See <a href="bodies.html#debugging-shapes">setting up a debug drawer</a> to connect this to your renderer.
+Call these methods after the physics step, while the world is not being modified by another thread.</p>
+<p>Green shows reference guides and upper or fixed limits, red shows lower limits, and white shows
+current anchors and directions. Coordinate frames use red for X, green for Y, and blue for Z.</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Reading the drawing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BallSocket</code></td>
+<td>The two anchor markers should coincide. The line between them shows separation.</td>
+</tr>
+<tr>
+<td><code>DistanceLimit</code></td>
+<td>Spheres around the first anchor show the allowed distances to the second anchor.</td>
+</tr>
+<tr>
+<td><code>PointOnLine</code></td>
+<td>Crosses mark stops along the line; arrows mark unbounded ends. A white line shows displacement away from the line.</td>
+</tr>
+<tr>
+<td><code>PointOnPlane</code></td>
+<td>Grids show the limiting planes. A white projection line appears when the anchor is outside the allowed region. The planes extend beyond the grids.</td>
+</tr>
+<tr>
+<td><code>ConeLimit</code>, <code>EllipticalConeLimit</code></td>
+<td>The white axis must stay within the outer cone and outside any red inner cone. Equal limits allow motion along one cone surface.</td>
+</tr>
+<tr>
+<td><code>HingeAngle</code></td>
+<td>An arc shows the allowed angles, or a green ray marks a fixed angle. The white ray shows the current angle. Short axis arrows reveal hinge misalignment.</td>
+</tr>
+<tr>
+<td><code>TwistAngle</code></td>
+<td>The dial shows the current twist and its limits. The white axis shows the current body direction; swing remains free.</td>
+</tr>
+<tr>
+<td><code>FixedAngle</code></td>
+<td>An RGB frame on each body accounts for the initial relative orientation. Matching axes stay parallel when the target is met. No frame is drawn for <code>World.NullBody</code>.</td>
+</tr>
+<tr>
+<td><code>LinearMotor</code></td>
+<td>Green arrows show body 1's contribution and white arrows show body 2's contribution to the requested relative motion. These show target direction, not measured velocity; a static body stays still.</td>
+</tr>
+<tr>
+<td><code>AngularMotor</code></td>
+<td>A green circle and white arrow show the target rotation of body 2, or body 1 when body 2 is static or kinematic. Short lines show both motor axes. The arrow shows target direction, not measured speed; a zero target has no arrow.</td>
+</tr>
+<tr>
+<td><code>AngularServo</code></td>
+<td>A green target frame and an RGB current frame share an origin. Corresponding axes align when the target is reached.</td>
+</tr>
+<tr>
+<td><code>TwistServo</code></td>
+<td>The dial marks the target twist and the current twist angle.</td>
+</tr>
+<tr>
+<td><code>LinearServo</code></td>
+<td>Green and white markers show the target and current anchor positions; the connecting line shows the position error.</td>
+</tr>
+<tr>
+<td><code>LinearAxisServo</code></td>
+<td>Markers show target and current position projected onto the reference axis. Perpendicular motion is uncontrolled.</td>
+</tr>
+<tr>
+<td><code>SpringConstraint</code></td>
+<td>The coil joins the anchors; the green cross marks the rest length along the spring direction.</td>
+</tr>
+</tbody>
+</table>
+<p>Pass <code>DebugDrawSettings</code> to change the appearance:</p>
+<pre><code class="lang-cs">constraint.DebugDraw(drawer, new DebugDrawSettings
+{
+    GuideSize = 2,
+    FrameSize = 1.5f
+});
+</code></pre>
+<p><code>GuideSize</code> changes the size of guides. <code>FrameSize</code> sets the length of coordinate-frame
+axes in world units, and <code>PointRadius</code> sets the radius of anchor spheres. Arrowhead size and
+shaft thickness are adjusted separately using <code>ArrowHeadSize</code> and <code>ArrowShaftRadius</code>.
+Physical distances and angular limits keep their actual values.
+See <a class="xref" href="../../api/Jitter2.DebugDrawSettings.html">DebugDrawSettings</a> for color, arrow, and detail settings.</p>
+<p>Arrows are solid by default. Set <code>SolidArrows = false</code> for wire arrows. <code>ArrowSegments</code> controls
+arrow smoothness. Wire arrowheads connect every vertex around the base to the tip.
+Your drawer's <code>DrawTriangle</code> implementation controls whether solid arrows and anchor markers
+appear filled or as triangle edges. When drawing your own guides, <code>DrawArrow</code> and <code>DrawFrame</code>
+use the same defaults; <code>DrawWireArrow</code> and <code>DrawWireFrame</code> explicitly draw wire geometry.</p>
 <h2 id="constraint-lifetime">Constraint lifetime</h2>
 <p>Constraints are attached to their two rigid bodies. They can become invalid without an explicit
 call to <code>world.Remove(constraint)</code> when:</p>

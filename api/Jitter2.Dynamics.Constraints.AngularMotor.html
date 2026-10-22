@@ -167,6 +167,9 @@ in the reference frames of their respective bodies.</p>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Body2">Constraint.Body2</a>
     </div>
     <div>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Tag">Constraint.Tag</a>
+    </div>
+    <div>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Handle">Constraint.Handle</a>
     </div>
     <div>
@@ -185,13 +188,16 @@ in the reference frames of their respective bodies.</p>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DispatchId">Constraint.DispatchId</a>
     </div>
     <div>
-      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterFullConstraint___">Constraint.RegisterFullConstraint(delegate*&lt;ref ConstraintData, float, void&gt;, delegate*&lt;ref ConstraintData, float, void&gt;)</a>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterFullConstraint___">Constraint.RegisterFullConstraint(delegate*&lt;ref ConstraintData, in TimeStep, void&gt;, delegate*&lt;ref ConstraintData, in TimeStep, void&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterSmallConstraint___">Constraint.RegisterSmallConstraint(delegate*&lt;ref SmallConstraintData, float, void&gt;, delegate*&lt;ref SmallConstraintData, float, void&gt;)</a>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterSmallConstraint___">Constraint.RegisterSmallConstraint(delegate*&lt;ref SmallConstraintData, in TimeStep, void&gt;, delegate*&lt;ref SmallConstraintData, in TimeStep, void&gt;)</a>
     </div>
     <div>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_IsEnabled">Constraint.IsEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_GetDebugDrawOrigin_Jitter2_DebugDrawSettings__">Constraint.GetDebugDrawOrigin(in DebugDrawSettings)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -293,15 +299,51 @@ in the reference frames of their respective bodies.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_MaximumForce" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.MaximumForce">
   MaximumForce
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets or sets the maximum force the motor can apply.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the maximum torque the motor can apply.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MaximumForce { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use MaximumTorque instead.&quot;)]
+public float MaximumForce { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Jitter2_Dynamics_Constraints_AngularMotor_MaximumForce_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.html#Jitter2_Dynamics_Constraints_AngularMotor_MaximumTorque">MaximumTorque</a> instead.</p>
+</div>
+
+
+
+
+  <a id="Jitter2_Dynamics_Constraints_AngularMotor_MaximumTorque_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.MaximumTorque*"></a>
+
+  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_MaximumTorque" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.MaximumTorque">
+  MaximumTorque
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum torque the motor can apply.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaximumTorque { get; set; }</code></pre>
   </div>
 
 
@@ -398,7 +440,7 @@ unmanaged header when the constraint is enabled.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_DebugDraw_Jitter2_IDebugDrawer_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.DebugDraw(Jitter2.IDebugDrawer)">
   DebugDraw(IDebugDrawer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L209"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draws a debug visualization of this constraint.</p>
@@ -430,6 +472,41 @@ unmanaged header when the constraint is enabled.</p>
     <dd><p>Thrown if the derived class does not override this method.</p>
 </dd>
   </dl>
+
+
+
+  <a id="Jitter2_Dynamics_Constraints_AngularMotor_DebugDraw_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.DebugDraw*"></a>
+
+  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_DebugDraw_Jitter2_IDebugDrawer_Jitter2_DebugDrawSettings__" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.DebugDraw(Jitter2.IDebugDrawer,Jitter2.DebugDrawSettings@)">
+  DebugDraw(IDebugDrawer, in DebugDrawSettings)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws this constraint using the supplied visualization settings.
+Custom constraints that only override <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DebugDraw_Jitter2_IDebugDrawer_">DebugDraw(IDebugDrawer)</a> use their default visualization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DebugDraw(IDebugDrawer drawer, in DebugDrawSettings settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>drawer</code> <a class="xref" href="Jitter2.IDebugDrawer.html">IDebugDrawer</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Jitter2.DebugDrawSettings.html">DebugDrawSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -506,7 +583,7 @@ unmanaged header when the constraint is enabled.</p>
 
   <h4 class="section" id="Jitter2_Dynamics_Constraints_AngularMotor_Initialize_Jitter2_LinearMath_JVector_Jitter2_LinearMath_JVector__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Stores the axes in local frames. Both axes are normalized internally.
-Default values: <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.html#Jitter2_Dynamics_Constraints_AngularMotor_TargetVelocity">TargetVelocity</a> = 0, <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.html#Jitter2_Dynamics_Constraints_AngularMotor_MaximumForce">MaximumForce</a> = 0.</p>
+Default values: <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.html#Jitter2_Dynamics_Constraints_AngularMotor_TargetVelocity">TargetVelocity</a> = 0, <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.html#Jitter2_Dynamics_Constraints_AngularMotor_MaximumTorque">MaximumTorque</a> = 0.</p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -520,23 +597,23 @@ Default values: <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.
 
   <a id="Jitter2_Dynamics_Constraints_AngularMotor_IterateAngularMotor_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.IterateAngularMotor*"></a>
 
-  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_IterateAngularMotor_Jitter2_Dynamics_Constraints_ConstraintData__System_Single_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.IterateAngularMotor(Jitter2.Dynamics.Constraints.ConstraintData@,System.Single)">
-  IterateAngularMotor(ref ConstraintData, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_IterateAngularMotor_Jitter2_Dynamics_Constraints_ConstraintData__Jitter2_TimeStep__" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.IterateAngularMotor(Jitter2.Dynamics.Constraints.ConstraintData@,Jitter2.TimeStep@)">
+  IterateAngularMotor(ref ConstraintData, in TimeStep)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void IterateAngularMotor(ref ConstraintData constraint, float idt)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void IterateAngularMotor(ref ConstraintData constraint, in TimeStep timeStep)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>constraint</code> <a class="xref" href="Jitter2.Dynamics.Constraints.ConstraintData.html">ConstraintData</a></dt>
     <dd></dd>
-    <dt><code>idt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>timeStep</code> <a class="xref" href="Jitter2.TimeStep.html">TimeStep</a></dt>
     <dd></dd>
   </dl>
 
@@ -553,23 +630,23 @@ Default values: <a class="xref" href="Jitter2.Dynamics.Constraints.AngularMotor.
 
   <a id="Jitter2_Dynamics_Constraints_AngularMotor_PrepareForIterationAngularMotor_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.PrepareForIterationAngularMotor*"></a>
 
-  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_PrepareForIterationAngularMotor_Jitter2_Dynamics_Constraints_ConstraintData__System_Single_" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.PrepareForIterationAngularMotor(Jitter2.Dynamics.Constraints.ConstraintData@,System.Single)">
-  PrepareForIterationAngularMotor(ref ConstraintData, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Jitter2_Dynamics_Constraints_AngularMotor_PrepareForIterationAngularMotor_Jitter2_Dynamics_Constraints_ConstraintData__Jitter2_TimeStep__" data-uid="Jitter2.Dynamics.Constraints.AngularMotor.PrepareForIterationAngularMotor(Jitter2.Dynamics.Constraints.ConstraintData@,Jitter2.TimeStep@)">
+  PrepareForIterationAngularMotor(ref ConstraintData, in TimeStep)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/AngularMotor.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void PrepareForIterationAngularMotor(ref ConstraintData constraint, float idt)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void PrepareForIterationAngularMotor(ref ConstraintData constraint, in TimeStep timeStep)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>constraint</code> <a class="xref" href="Jitter2.Dynamics.Constraints.ConstraintData.html">ConstraintData</a></dt>
     <dd></dd>
-    <dt><code>idt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>timeStep</code> <a class="xref" href="Jitter2.TimeStep.html">TimeStep</a></dt>
     <dd></dd>
   </dl>
 

@@ -167,6 +167,9 @@ degree of freedom when the limit is enforced.</p>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Body2">Constraint.Body2</a>
     </div>
     <div>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Tag">Constraint.Tag</a>
+    </div>
+    <div>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_Handle">Constraint.Handle</a>
     </div>
     <div>
@@ -185,13 +188,16 @@ degree of freedom when the limit is enforced.</p>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DispatchId">Constraint.DispatchId</a>
     </div>
     <div>
-      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterFullConstraint___">Constraint.RegisterFullConstraint(delegate*&lt;ref ConstraintData, float, void&gt;, delegate*&lt;ref ConstraintData, float, void&gt;)</a>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterFullConstraint___">Constraint.RegisterFullConstraint(delegate*&lt;ref ConstraintData, in TimeStep, void&gt;, delegate*&lt;ref ConstraintData, in TimeStep, void&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterSmallConstraint___">Constraint.RegisterSmallConstraint(delegate*&lt;ref SmallConstraintData, float, void&gt;, delegate*&lt;ref SmallConstraintData, float, void&gt;)</a>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_RegisterSmallConstraint___">Constraint.RegisterSmallConstraint(delegate*&lt;ref SmallConstraintData, in TimeStep, void&gt;, delegate*&lt;ref SmallConstraintData, in TimeStep, void&gt;)</a>
     </div>
     <div>
       <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_IsEnabled">Constraint.IsEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_GetDebugDrawOrigin_Jitter2_DebugDrawSettings__">Constraint.GetDebugDrawOrigin(in DebugDrawSettings)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -229,7 +235,7 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Angle" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Angle">
   Angle
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L215"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the current twist angle relative to the initial pose.</p>
@@ -261,7 +267,7 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Bias" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Bias">
   Bias
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L259"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the bias factor controlling how aggressively angular error is corrected.</p>
@@ -294,10 +300,10 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Impulse" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Impulse">
   Impulse
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L272"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the accumulated impulse applied by this constraint during the last step.</p>
+  <div class="markdown level1 summary"><p>Gets the accumulated solver impulse from the last solved substep.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -326,7 +332,7 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Limit" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Limit">
   Limit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the angular limits for the twist rotation.</p>
@@ -364,7 +370,7 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Softness" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Softness">
   Softness
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the softness (compliance) of the constraint.</p>
@@ -401,7 +407,7 @@ degree of freedom when the limit is enforced.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Create" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Create">
   Create()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the solver dispatch id used by this instance. Override this in derived classes
@@ -430,7 +436,7 @@ unmanaged header when the constraint is enabled.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_DebugDraw_Jitter2_IDebugDrawer_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.DebugDraw(Jitter2.IDebugDrawer)">
   DebugDraw(IDebugDrawer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L274"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draws a debug visualization of this constraint.</p>
@@ -465,11 +471,46 @@ unmanaged header when the constraint is enabled.</p>
 
 
 
+  <a id="Jitter2_Dynamics_Constraints_TwistAngle_DebugDraw_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.DebugDraw*"></a>
+
+  <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_DebugDraw_Jitter2_IDebugDrawer_Jitter2_DebugDrawSettings__" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.DebugDraw(Jitter2.IDebugDrawer,Jitter2.DebugDrawSettings@)">
+  DebugDraw(IDebugDrawer, in DebugDrawSettings)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws this constraint using the supplied visualization settings.
+Custom constraints that only override <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DebugDraw_Jitter2_IDebugDrawer_">DebugDraw(IDebugDrawer)</a> use their default visualization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DebugDraw(IDebugDrawer drawer, in DebugDrawSettings settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>drawer</code> <a class="xref" href="Jitter2.IDebugDrawer.html">IDebugDrawer</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Jitter2.DebugDrawSettings.html">DebugDrawSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Jitter2_Dynamics_Constraints_TwistAngle_Initialize_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Initialize*"></a>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Initialize_Jitter2_LinearMath_JVector_Jitter2_LinearMath_JVector_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Initialize(Jitter2.LinearMath.JVector,Jitter2.LinearMath.JVector)">
   Initialize(JVector, JVector)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes the constraint with a fixed twist angle (no rotation allowed).</p>
@@ -511,7 +552,7 @@ unmanaged header when the constraint is enabled.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_Initialize_Jitter2_LinearMath_JVector_Jitter2_LinearMath_JVector_Jitter2_Dynamics_Constraints_AngularLimit_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.Initialize(Jitter2.LinearMath.JVector,Jitter2.LinearMath.JVector,Jitter2.Dynamics.Constraints.AngularLimit)">
   Initialize(JVector, JVector, AngularLimit)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes the constraint from world-space axes and angular limits.</p>
@@ -544,6 +585,7 @@ unmanaged header when the constraint is enabled.</p>
 
   <h4 class="section" id="Jitter2_Dynamics_Constraints_TwistAngle_Initialize_Jitter2_LinearMath_JVector_Jitter2_LinearMath_JVector_Jitter2_Dynamics_Constraints_AngularLimit__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Stores each axis in the local frame of its body and records the initial relative orientation.
+Equal or reversed limits fix the twist at their midpoint.
 Default values: <a class="xref" href="Jitter2.Dynamics.Constraints.TwistAngle.html#Jitter2_Dynamics_Constraints_TwistAngle_Softness">Softness</a> = <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DefaultAngularSoftness">DefaultAngularSoftness</a>, <a class="xref" href="Jitter2.Dynamics.Constraints.TwistAngle.html#Jitter2_Dynamics_Constraints_TwistAngle_Bias">Bias</a> = <a class="xref" href="Jitter2.Dynamics.Constraints.Constraint.html#Jitter2_Dynamics_Constraints_Constraint_DefaultAngularBias">DefaultAngularBias</a>.</p>
 </div>
 
@@ -559,23 +601,23 @@ or when either value in <code class="paramref">limit</code> is not finite.</p>
 
   <a id="Jitter2_Dynamics_Constraints_TwistAngle_IterateTwistAngle_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.IterateTwistAngle*"></a>
 
-  <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_IterateTwistAngle_Jitter2_Dynamics_Constraints_ConstraintData__System_Single_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.IterateTwistAngle(Jitter2.Dynamics.Constraints.ConstraintData@,System.Single)">
-  IterateTwistAngle(ref ConstraintData, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_IterateTwistAngle_Jitter2_Dynamics_Constraints_ConstraintData__Jitter2_TimeStep__" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.IterateTwistAngle(Jitter2.Dynamics.Constraints.ConstraintData@,Jitter2.TimeStep@)">
+  IterateTwistAngle(ref ConstraintData, in TimeStep)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L292"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void IterateTwistAngle(ref ConstraintData constraint, float idt)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void IterateTwistAngle(ref ConstraintData constraint, in TimeStep timeStep)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>constraint</code> <a class="xref" href="Jitter2.Dynamics.Constraints.ConstraintData.html">ConstraintData</a></dt>
     <dd></dd>
-    <dt><code>idt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>timeStep</code> <a class="xref" href="Jitter2.TimeStep.html">TimeStep</a></dt>
     <dd></dd>
   </dl>
 
@@ -592,23 +634,23 @@ or when either value in <code class="paramref">limit</code> is not finite.</p>
 
   <a id="Jitter2_Dynamics_Constraints_TwistAngle_PrepareForIterationTwistAngle_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.PrepareForIterationTwistAngle*"></a>
 
-  <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_PrepareForIterationTwistAngle_Jitter2_Dynamics_Constraints_ConstraintData__System_Single_" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.PrepareForIterationTwistAngle(Jitter2.Dynamics.Constraints.ConstraintData@,System.Single)">
-  PrepareForIterationTwistAngle(ref ConstraintData, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_PrepareForIterationTwistAngle_Jitter2_Dynamics_Constraints_ConstraintData__Jitter2_TimeStep__" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.PrepareForIterationTwistAngle(Jitter2.Dynamics.Constraints.ConstraintData@,Jitter2.TimeStep@)">
+  PrepareForIterationTwistAngle(ref ConstraintData, in TimeStep)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void PrepareForIterationTwistAngle(ref ConstraintData constraint, float idt)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void PrepareForIterationTwistAngle(ref ConstraintData constraint, in TimeStep timeStep)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>constraint</code> <a class="xref" href="Jitter2.Dynamics.Constraints.ConstraintData.html">ConstraintData</a></dt>
     <dd></dd>
-    <dt><code>idt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>timeStep</code> <a class="xref" href="Jitter2.TimeStep.html">TimeStep</a></dt>
     <dd></dd>
   </dl>
 
@@ -627,7 +669,7 @@ or when either value in <code class="paramref">limit</code> is not finite.</p>
 
   <h3 id="Jitter2_Dynamics_Constraints_TwistAngle_ResetWarmStart" data-uid="Jitter2.Dynamics.Constraints.TwistAngle.ResetWarmStart">
   ResetWarmStart()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Dynamics/Constraints/TwistAngle.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resets the cached warm-start state used by the solver for this constraint.</p>

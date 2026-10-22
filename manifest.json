@@ -1,4 +1,5 @@
 {
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
   "source_base_path": "/home/runner/work/jitterphysics2/jitterphysics2/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -270,6 +271,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Collision.ConvexPolytope.AddVertexResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Collision.ConvexPolytope.AddVertexResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Collision.ConvexPolytope.AddVertexResult",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Collision.ConvexPolytope.Triangle.yml",
       "output": {
         ".html": {
@@ -294,7 +309,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Collision.ConvexPolytope",
-      "Summary": "<p sourcefile=\"api/Jitter2.Collision.ConvexPolytope.yml\" sourcestartlinenumber=\"1\">Represents a convex polytope builder used in the Expanding Polytope Algorithm (EPA)\nfor computing penetration depth and contact information.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.ConvexPolytope.yml\" sourcestartlinenumber=\"1\">EPA polytope with filtered exact visibility, orientation and\ndegeneracy predicates on the supplied floating-point coordinates.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -588,7 +603,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Collision.Island",
-      "Summary": "<p sourcefile=\"api/Jitter2.Collision.Island.yml\" sourcestartlinenumber=\"1\">Represents an island, which is a collection of bodies that are either directly or indirectly in contact with each other.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.Island.yml\" sourcestartlinenumber=\"1\">Represents a collection of bodies connected directly or indirectly by contacts or constraints.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -617,6 +632,20 @@
       "IsMRef": true,
       "Title": "Jitter2.Collision.MinkowskiDifference",
       "Summary": "<p sourcefile=\"api/Jitter2.Collision.MinkowskiDifference.yml\" sourcestartlinenumber=\"1\">Provides methods for computing points on the Minkowski difference of two convex shapes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Collision.NarrowPhase.SweepStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Collision.NarrowPhase.SweepStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Collision.NarrowPhase.SweepStatus",
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.NarrowPhase.SweepStatus.yml\" sourcestartlinenumber=\"1\">The outcome of a sweep over a specified time interval.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -826,7 +855,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Collision.Shapes.TriangleMesh.Triangle",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.Shapes.TriangleMesh.Triangle.yml\" sourcestartlinenumber=\"1\">Indices, neighbors, and local-space normal of one mesh triangle.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1036,7 +1065,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Collision.TriangleEdgeCollisionFilter",
-      "Summary": "<p sourcefile=\"api/Jitter2.Collision.TriangleEdgeCollisionFilter.yml\" sourcestartlinenumber=\"1\">Filters internal edge collisions for <xref href=\"Jitter2.Collision.Shapes.TriangleShape\" data-throw-if-not-resolved=\"false\"></xref> geometry. Adjusts collision\nnormals at shared edges to match neighboring triangles, or discards the collision if the normal\ncannot be resolved. Requires triangle adjacency information; boundary edges (no neighbor)\nare left unmodified. Back-face collisions are discarded.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.TriangleEdgeCollisionFilter.yml\" sourcestartlinenumber=\"1\">Filters internal edge collisions for <xref href=\"Jitter2.Collision.Shapes.TriangleShape\" data-throw-if-not-resolved=\"false\"></xref> geometry. Adjusts collision\nnormals at shared edges to match neighboring triangles, or discards the collision if the normal\ncannot be resolved. Requires triangle adjacency information; boundary edges (no neighbor)\nare left unmodified. Back-face normals within <xref href=\"Jitter2.Collision.TriangleEdgeCollisionFilter.AngleThreshold\" data-throw-if-not-resolved=\"false\"></xref> of the opposite\ntriangle normal are discarded.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1180,6 +1209,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.DebugDrawColors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.DebugDrawColors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.DebugDrawColors",
+      "Summary": "<p sourcefile=\"api/Jitter2.DebugDrawColors.yml\" sourcestartlinenumber=\"1\">Common colors packed as <code>0xRRGGBBAA</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.DebugDrawGeometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.DebugDrawGeometry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.DebugDrawGeometry",
+      "Summary": "<p sourcefile=\"api/Jitter2.DebugDrawGeometry.yml\" sourcestartlinenumber=\"1\">Renderer-independent drawing geometry emitted through <xref href=\"Jitter2.IDebugDrawer\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.DebugDrawSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.DebugDrawSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.DebugDrawSettings",
+      "Summary": "<p sourcefile=\"api/Jitter2.DebugDrawSettings.yml\" sourcestartlinenumber=\"1\">Controls the size, detail, and colors of debug visualizations.\nA default-initialized value uses the same settings as <xref href=\"Jitter2.DebugDrawSettings.Default\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Dynamics.Arbiter.yml",
       "output": {
         ".html": {
@@ -1247,6 +1318,34 @@
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.AngularMotor",
       "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.AngularMotor.yml\" sourcestartlinenumber=\"1\">Represents a motor that drives relative angular velocity between two axes fixed\nin the reference frames of their respective bodies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.AngularServo.AngularServoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.AngularServo.AngularServoData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.AngularServo.AngularServoData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.AngularServo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.AngularServo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.AngularServo",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.AngularServo.yml\" sourcestartlinenumber=\"1\">Drives body 2 toward a target orientation relative to body 1 using limited torque.\nControls three angular degrees of freedom; translation remains free.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1372,7 +1471,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.DistanceLimit",
-      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.DistanceLimit.yml\" sourcestartlinenumber=\"1\">Constrains the distance between a fixed point in the reference frame of one body and a fixed\npoint in the reference frame of another body. This constraint removes one translational degree\nof freedom. For a distance of zero, use the <xref href=\"Jitter2.Dynamics.Constraints.BallSocket\" data-throw-if-not-resolved=\"false\"></xref> constraint.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.DistanceLimit.yml\" sourcestartlinenumber=\"1\">Constrains the distance between a fixed point in the reference frame of one body and a fixed\npoint in the reference frame of another body. A fixed limit removes one translational degree\nof freedom; a range limit acts when a boundary is reached. For a distance of zero, use the\n<xref href=\"Jitter2.Dynamics.Constraints.BallSocket\" data-throw-if-not-resolved=\"false\"></xref> constraint.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.EllipticalConeLimit.EllipticalConeLimitData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.EllipticalConeLimit.EllipticalConeLimitData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.EllipticalConeLimit.EllipticalConeLimitData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.EllipticalConeLimit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.EllipticalConeLimit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.EllipticalConeLimit",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.EllipticalConeLimit.yml\" sourcestartlinenumber=\"1\">Restricts relative swing to the region between two elliptical cones, leaving twist free.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1442,7 +1569,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.HingeJoint",
-      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.HingeJoint.yml\" sourcestartlinenumber=\"1\">Constructs a hinge joint utilizing a <xref href=\"Jitter2.Dynamics.Constraints.HingeJoint.HingeAngle\" data-throw-if-not-resolved=\"false\"></xref>, a <xref href=\"Jitter2.Dynamics.Constraints.HingeJoint.BallSocket\" data-throw-if-not-resolved=\"false\"></xref>, and an optional <xref href=\"Jitter2.Dynamics.Constraints.AngularMotor\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.HingeJoint.yml\" sourcestartlinenumber=\"1\">Constructs a hinge using a <xref href=\"Jitter2.Dynamics.Constraints.HingeJoint.HingeAngle\" data-throw-if-not-resolved=\"false\"></xref> and a <xref href=\"Jitter2.Dynamics.Constraints.HingeJoint.BallSocket\" data-throw-if-not-resolved=\"false\"></xref>,\nwith an optional <xref href=\"Jitter2.Dynamics.Constraints.AngularMotor\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"Jitter2.Dynamics.Constraints.TwistServo\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1457,6 +1584,48 @@
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.Joint",
       "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.Joint.yml\" sourcestartlinenumber=\"1\">Base class for joints, which are composite constraints built from multiple <xref href=\"Jitter2.Dynamics.Constraints.Constraint\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.JointDrive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.JointDrive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.JointDrive",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.JointDrive.yml\" sourcestartlinenumber=\"1\">Selects the optional drive created with a joint.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.LinearAxisServo.LinearAxisServoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.LinearAxisServo.LinearAxisServoData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.LinearAxisServo.LinearAxisServoData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.LinearAxisServo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.LinearAxisServo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.LinearAxisServo",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.LinearAxisServo.yml\" sourcestartlinenumber=\"1\">Drives the signed separation of two anchors along an axis attached to body 1 using limited force.\nControls one translational degree of freedom; perpendicular movement and rotation remain free.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1499,6 +1668,34 @@
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.LinearMotor",
       "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.LinearMotor.yml\" sourcestartlinenumber=\"1\">A motor constraint that drives relative translational velocity along an axis fixed\nin the reference frame of each body.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.LinearServo.LinearServoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.LinearServo.LinearServoData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.LinearServo.LinearServoData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.LinearServo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.LinearServo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.LinearServo",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.LinearServo.yml\" sourcestartlinenumber=\"1\">Drives an anchor on body 2 toward a target position attached to body 1 using limited force.\nControls three translational degrees of freedom; relative orientation remains free.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1568,7 +1765,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.PrismaticJoint",
-      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.PrismaticJoint.yml\" sourcestartlinenumber=\"1\">Constructs a prismatic joint utilizing a <xref href=\"Jitter2.Dynamics.Constraints.PointOnLine\" data-throw-if-not-resolved=\"false\"></xref> constraint in conjunction with\n<xref href=\"Jitter2.Dynamics.Constraints.PrismaticJoint.FixedAngle\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"Jitter2.Dynamics.Constraints.PrismaticJoint.HingeAngle\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"Jitter2.Dynamics.Constraints.LinearMotor\" data-throw-if-not-resolved=\"false\"></xref> constraints.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.PrismaticJoint.yml\" sourcestartlinenumber=\"1\">Constructs a prismatic joint using a <xref href=\"Jitter2.Dynamics.Constraints.PointOnLine\" data-throw-if-not-resolved=\"false\"></xref> constraint, either a\n<xref href=\"Jitter2.Dynamics.Constraints.PrismaticJoint.FixedAngle\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"Jitter2.Dynamics.Constraints.PrismaticJoint.HingeAngle\" data-throw-if-not-resolved=\"false\"></xref> constraint, and an optional\n<xref href=\"Jitter2.Dynamics.Constraints.LinearMotor\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"Jitter2.Dynamics.Constraints.LinearAxisServo\" data-throw-if-not-resolved=\"false\"></xref> drive.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1614,6 +1811,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.TwistServo.TwistServoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.TwistServo.TwistServoData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.TwistServo.TwistServoData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.Constraints.TwistServo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.Constraints.TwistServo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.Constraints.TwistServo",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.TwistServo.yml\" sourcestartlinenumber=\"1\">Drives relative twist toward a target angle using limited torque.\nControls one angular degree of freedom; translation and swing remain free.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Dynamics.Constraints.UniversalJoint.yml",
       "output": {
         ".html": {
@@ -1624,7 +1849,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.Dynamics.Constraints.UniversalJoint",
-      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.UniversalJoint.yml\" sourcestartlinenumber=\"1\">Creates a universal joint utilizing a <xref href=\"Jitter2.Dynamics.Constraints.UniversalJoint.TwistAngle\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"Jitter2.Dynamics.Constraints.UniversalJoint.BallSocket\" data-throw-if-not-resolved=\"false\"></xref>, and an optional <xref href=\"Jitter2.Dynamics.Constraints.AngularMotor\" data-throw-if-not-resolved=\"false\"></xref>\nconstraint.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.Constraints.UniversalJoint.yml\" sourcestartlinenumber=\"1\">Creates a universal joint using a <xref href=\"Jitter2.Dynamics.Constraints.UniversalJoint.TwistAngle\" data-throw-if-not-resolved=\"false\"></xref> and a <xref href=\"Jitter2.Dynamics.Constraints.UniversalJoint.BallSocket\" data-throw-if-not-resolved=\"false\"></xref>,\nwith an optional <xref href=\"Jitter2.Dynamics.Constraints.AngularMotor\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"Jitter2.Dynamics.Constraints.AngularServo\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1726,6 +1951,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.MotionAxes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.MotionAxes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.MotionAxes",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.MotionAxes.yml\" sourcestartlinenumber=\"1\">Permitted translations and rotations about world-space axes.\nUsed by <xref href=\"Jitter2.Dynamics.RigidBody.AllowedMotion\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Dynamics.MotionType.yml",
       "output": {
         ".html": {
@@ -1806,7 +2045,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.IDebugDrawer",
-      "Summary": "<p sourcefile=\"api/Jitter2.IDebugDrawer.yml\" sourcestartlinenumber=\"1\">Defines an interface for drawing debug visualization elements.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.IDebugDrawer.yml\" sourcestartlinenumber=\"1\">Receives colored line segments and triangles for debug visualization, in world space.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1877,6 +2116,20 @@
       "IsMRef": true,
       "Title": "Jitter2.LinearMath.JQuaternion",
       "Summary": "<p sourcefile=\"api/Jitter2.LinearMath.JQuaternion.yml\" sourcestartlinenumber=\"1\">A structure representing a Quaternion: <code>Q = x<em sourcefile=\"api/Jitter2.LinearMath.JQuaternion.yml\" sourcestartlinenumber=\"1\">i + y</em>j + z*k + w</code>.\n<br>\nUses the Hamilton convention where <code>i² = j² = k² = ijk = -1</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.LinearMath.JSymmetricMatrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.LinearMath.JSymmetricMatrix.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.LinearMath.JSymmetricMatrix",
+      "Summary": "<p sourcefile=\"api/Jitter2.LinearMath.JSymmetricMatrix.yml\" sourcestartlinenumber=\"1\">Represents a symmetric 3x3 matrix using six components of type <xref href=\"System.Single\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2142,7 +2395,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.SoftBodies.DynamicTreeCollisionFilter",
-      "Summary": "<p sourcefile=\"api/Jitter2.SoftBodies.DynamicTreeCollisionFilter.yml\" sourcestartlinenumber=\"1\">Provides a collision filter that prevents self-collisions within soft bodies\nand shapes attached to the same rigid body.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.SoftBodies.DynamicTreeCollisionFilter.yml\" sourcestartlinenumber=\"1\">Provides a collision filter that rejects pairs of soft-body shapes belonging to the same\nsoft body and pairs of rigid-body shapes attached to the same rigid body. Mixed pairs pass.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2269,6 +2522,20 @@
       "IsMRef": true,
       "Title": "Jitter2.ThreadContext",
       "Summary": "<p sourcefile=\"api/Jitter2.ThreadContext.yml\" sourcestartlinenumber=\"1\">Specifies the threading context in which code executes or a callback is invoked.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.TimeStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.TimeStep.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.TimeStep",
+      "Summary": "<p sourcefile=\"api/Jitter2.TimeStep.yml\" sourcestartlinenumber=\"1\">Timing information for a simulation step and its solver substeps.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2531,6 +2798,129 @@
         },
         ".json": {
           "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/box-speculative-contact.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/box-speculative-contact.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/iscd-demo-one-pass-miss.png",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/iscd-demo-one-pass-miss.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/iscd-demo-preview.png",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/iscd-demo-preview.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/iscd-demo-tunneling-preview.png",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/iscd-demo-tunneling-preview.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/iterative-speculative-contact-discovery.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/iterative-speculative-contact-discovery.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/mpr-local-portal.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/mpr-local-portal.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/images/speculative-contact.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/images/speculative-contact.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/iscd-demo.html",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/iscd-demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/articles/iterative-speculative-contact-discovery.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/articles/iterative-speculative-contact-discovery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/articles/mpr-and-epa.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/articles/mpr-and-epa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/articles/mpr-epa-demo.html",
+      "output": {
+        "resource": {
+          "relative_path": "docs/articles/mpr-epa-demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/articles/toc.json"
         }
       },
       "version": ""
