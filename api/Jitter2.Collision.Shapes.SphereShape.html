@@ -102,7 +102,7 @@ Class SphereShape  <a class="header-action link-secondary" title="View source" h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SphereShape : RigidBodyShape, IDynamicTreeProxy, IPartitionedSetIndex, IUpdatableBoundingBox, ISupportMappable, IRayCastable, ISweepTestable, IDistanceTestable, IDebugDrawable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SphereShape : RigidBodyShape, IDynamicTreeProxy, IPartitionedSetIndex, IUpdatableBoundingBox, ISupportMappable, IRayCastable, IAngularSweepTestable, ISweepTestable, IDistanceTestable, IDebugDrawable</code></pre>
   </div>
 
 
@@ -126,6 +126,7 @@ Class SphereShape  <a class="header-action link-secondary" title="View source" h
       <div><a class="xref" href="Jitter2.Collision.IUpdatableBoundingBox.html">IUpdatableBoundingBox</a></div>
       <div><a class="xref" href="Jitter2.Collision.ISupportMappable.html">ISupportMappable</a></div>
       <div><a class="xref" href="Jitter2.Collision.IRayCastable.html">IRayCastable</a></div>
+      <div><a class="xref" href="Jitter2.Collision.IAngularSweepTestable.html">IAngularSweepTestable</a></div>
       <div><a class="xref" href="Jitter2.Collision.ISweepTestable.html">ISweepTestable</a></div>
       <div><a class="xref" href="Jitter2.Collision.IDistanceTestable.html">IDistanceTestable</a></div>
       <div><a class="xref" href="Jitter2.IDebugDrawable.html">IDebugDrawable</a></div>
@@ -155,6 +156,9 @@ Class SphereShape  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="Jitter2.Collision.Shapes.RigidBodyShape.html#Jitter2_Collision_Shapes_RigidBodyShape_Sweep__1___0__Jitter2_LinearMath_JQuaternion__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__System_Single__">RigidBodyShape.Sweep&lt;T&gt;(in T, in JQuaternion, in JVector, in JVector, out JVector, out JVector, out JVector, out float)</a>
     </div>
     <div>
+      <a class="xref" href="Jitter2.Collision.Shapes.RigidBodyShape.html#Jitter2_Collision_Shapes_RigidBodyShape_Sweep__1___0__Jitter2_LinearMath_JQuaternion__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__System_Single_System_Single_Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__System_Single__">RigidBodyShape.Sweep&lt;T&gt;(in T, in JQuaternion, in JVector, in JVector, in JVector, float, float, out JVector, out JVector, out JVector, out float)</a>
+    </div>
+    <div>
       <a class="xref" href="Jitter2.Collision.Shapes.RigidBodyShape.html#Jitter2_Collision_Shapes_RigidBodyShape_Distance__1___0__Jitter2_LinearMath_JQuaternion__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__System_Single__">RigidBodyShape.Distance&lt;T&gt;(in T, in JQuaternion, in JVector, out JVector, out JVector, out JVector, out float)</a>
     </div>
     <div>
@@ -162,9 +166,6 @@ Class SphereShape  <a class="header-action link-secondary" title="View source" h
     </div>
     <div>
       <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_WorldBoundingBox">Shape.WorldBoundingBox</a>
-    </div>
-    <div>
-      <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_SweptExpandBoundingBox_System_Single_">Shape.SweptExpandBoundingBox(float)</a>
     </div>
     <div>
       <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_DebugDraw_Jitter2_IDebugDrawer_">Shape.DebugDraw(IDebugDrawer)</a>
@@ -328,9 +329,8 @@ Class SphereShape  <a class="header-action link-secondary" title="View source" h
   <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Collision/Shapes/SphereShape.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Calculates the mass and inertia of the shape. Can be overridden by child classes to improve
-performance or accuracy. The default implementation relies on an approximation of the shape
-constructed using the support map function.</p>
+  <div class="markdown level1 summary"><p>Calculates the shape's mass, center of mass, and inertia at unit density.
+The default implementation approximates the surface; overrides can provide exact mass properties.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -370,7 +370,7 @@ not the center of mass.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Collision/Shapes/SphereShape.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Appends debug triangles in the coordinate system used by <a class="xref" href="Jitter2.Collision.Shapes.Shape.html#Jitter2_Collision_Shapes_Shape_SupportMap_Jitter2_LinearMath_JVector__Jitter2_LinearMath_JVector__">SupportMap(in JVector, out JVector)</a>.</p>
+  <div class="markdown level1 summary"><p>Draws the shape's surface as triangles in local coordinates.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -401,9 +401,8 @@ not the center of mass.</p>
 
 
   <h4 class="section" id="Jitter2_Collision_Shapes_SphereShape_DebugDrawLocal__1___0__Jitter2_DebugDrawSettings___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Override this method to supply custom surface geometry. Rigid-body and affine transforms are
-applied by the caller. Use outward-facing triangles for closed surfaces.
-Without an override, the shape is drawn as an approximate surface.</p>
+  <div class="markdown level1 remarks"><p>Override to provide custom debug geometry; otherwise, the surface is approximated.
+Use outward-facing triangles for closed surfaces. Body and shape transforms are applied automatically.</p>
 </div>
 
 
@@ -416,7 +415,7 @@ Without an override, the shape is drawn as an approximate surface.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Collision/Shapes/SphereShape.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Computes a representative point within the convex hull, used as an initial search point in GJK-based algorithms.</p>
+  <div class="markdown level1 summary"><p>Returns a point inside the shape. It does not need to be the center of mass.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -427,7 +426,7 @@ Without an override, the shape is drawn as an approximate surface.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>point</code> <a class="xref" href="Jitter2.LinearMath.JVector.html">JVector</a></dt>
-    <dd><p>A point inside the convex hull.</p>
+    <dd><p>An interior point in local space.</p>
 </dd>
   </dl>
 
@@ -449,9 +448,7 @@ Without an override, the shape is drawn as an approximate surface.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/NL0bP/jitterphysics2/blob/main/src/Jitter2/Collision/Shapes/SphereShape.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs a local ray cast against the shape, checking if a ray originating from a specified point
-and traveling in a specified direction intersects with the object. It does not take into account the
-transformation of the associated rigid body.</p>
+  <div class="markdown level1 summary"><p>Casts a ray against the shape in local coordinates, without applying the body's transform.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
