@@ -565,6 +565,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Collision.ISupportFeature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Collision.ISupportFeature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Collision.ISupportFeature",
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.ISupportFeature.yml\" sourcestartlinenumber=\"1\">Extension of <xref href=\"Jitter2.Collision.ISupportMappable\" data-throw-if-not-resolved=\"false\"></xref> for shapes that report their whole outermost feature\nin a given direction: a point, a segment or a convex polygon.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Collision.ISupportMappable.yml",
       "output": {
         ".html": {
@@ -954,6 +968,20 @@
       "IsMRef": true,
       "Title": "Jitter2.Collision.SimplexSolverAB",
       "Summary": "<p sourcefile=\"api/Jitter2.Collision.SimplexSolverAB.yml\" sourcestartlinenumber=\"1\">Implements the Gilbert-Johnson-Keerthi (GJK) simplex solver with support for retrieving\nthe closest points on the original shapes (A and B spaces).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Collision.SupportFeatureSampler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Collision.SupportFeatureSampler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Collision.SupportFeatureSampler",
+      "Summary": "<p sourcefile=\"api/Jitter2.Collision.SupportFeatureSampler.yml\" sourcestartlinenumber=\"1\">Finds the outermost feature of a shape in a given direction by sampling its support mapping.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1951,6 +1979,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.Dynamics.ContactSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.Dynamics.ContactSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.Dynamics.ContactSettings",
+      "Summary": "<p sourcefile=\"api/Jitter2.Dynamics.ContactSettings.yml\" sourcestartlinenumber=\"1\">Solver settings shared by all contacts of a world. Access and modify them through\n<xref href=\"Jitter2.World.ContactSettings\" data-throw-if-not-resolved=\"false\"></xref>; changes take effect for existing and new contacts alike.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.Dynamics.MassInertiaUpdateMode.yml",
       "output": {
         ".html": {
@@ -2427,6 +2469,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Jitter2.SoftBodies.SoftBodySegment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Jitter2.SoftBodies.SoftBodySegment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Jitter2.SoftBodies.SoftBodySegment",
+      "Summary": "<p sourcefile=\"api/Jitter2.SoftBodies.SoftBodySegment.yml\" sourcestartlinenumber=\"1\">A capsule-shaped collision segment spanning two soft-body vertices. Chains of segments can be\nused to build ropes and cables.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Jitter2.SoftBodies.SoftBodyShape.yml",
       "output": {
         ".html": {
@@ -2807,11 +2863,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -2930,11 +2986,11 @@
       "type": "Toc",
       "source_relative_path": "docs/articles/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/articles/toc.html"
-        },
         ".json": {
           "relative_path": "docs/articles/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/articles/toc.html"
         }
       },
       "version": ""
@@ -3031,6 +3087,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/documentation/softbodies.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/documentation/softbodies.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/documentation/world.md",
       "output": {
         ".html": {
@@ -3063,11 +3129,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -3224,6 +3290,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "docs/tutorials/teapots/images/support-query-cost.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docs/tutorials/teapots/images/support-query-cost.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "docs/tutorials/teapots/images/teapot.png",
       "output": {
         "resource": {
@@ -3286,11 +3362,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""
