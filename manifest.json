@@ -2577,7 +2577,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Jitter2.SolveMode",
-      "Summary": "<p sourcefile=\"api/Jitter2.SolveMode.yml\" sourcestartlinenumber=\"1\">Controls which solver strategy is used during <xref href=\"Jitter2.World.Step(System.Single%2cSystem.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/Jitter2.SolveMode.yml\" sourcestartlinenumber=\"1\">Selects how the solver groups the contacts that it solves at the same time. Both modes use the\nsame solver and produce equally valid results.</p>\n"
     },
     {
       "type": "ManagedReference",
